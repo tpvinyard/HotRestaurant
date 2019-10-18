@@ -54,6 +54,11 @@ app.route("/waitinglist")
 app.route("/api/reservation")
 .get(function(req, res) {
   return res.json(reservedTable);
+})
+.post(function(req, res) {
+
+  reservedTable.push(req.body);
+  
 
 })
 
