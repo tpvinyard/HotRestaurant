@@ -6,29 +6,27 @@ const
 const app = express();
 const PORT = 3500;
 
-app.use(express.urlencoded({extend: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const tables = [
-
-]
-
-const reservation = [
-
-]
-
-const waitingLists
 
 
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "home.html"))
+app.route("/")
+.get(function(req, res) {
+  res.sendFile(path.join(__dirname, "views/home.html"))
 })
 
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "reservation.html"))
+app.route("/resvervation")
+.get(function(req, res) {
+  res.sendFile(path.join(__dirname, "views/reservation.html"))
+})
+app.route("/waitinglist")
+.get (function(req, res) {
+  res.sendFile(path.join(__dirname, "views/waitingList.html"))
 })
 
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "waitingList.html"))
-})
 
+
+app.listen(PORT, function() {
+  console.log("App listening on PORT http://localhost:" + PORT);
+});

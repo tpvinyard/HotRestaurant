@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/tpvinyard/HotRestaurant/issues"
   },
-  "homepage": "https://github.com/tpvinyard/HotRestaurant#readme"
+  "homepage": "https://github.com/tpvinyard/HotRestaurant#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
