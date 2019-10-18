@@ -16,10 +16,11 @@ app.route("/")
   res.sendFile(path.join(__dirname, "views/home.html"))
 })
 
-app.route("/resvervation")
+app.route("/reservation")
 .get(function(req, res) {
   res.sendFile(path.join(__dirname, "views/reservation.html"))
 })
+
 app.route("/waitinglist")
 .get (function(req, res) {
   res.sendFile(path.join(__dirname, "views/waitingList.html"))
