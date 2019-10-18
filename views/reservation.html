@@ -16,7 +16,7 @@
             <h1 class="display-4">Hot Restaurant</h1>
             <hr class="my-4">
             <p>Make Your Reservation</p>
-            <a class="btn btn-primary btn-lg" href="./waitingList" role="button">View Reservations</a>
+            <a class="btn btn-primary btn-lg" href="./waitingList" id="view_waitinglist"role="button">View Reservations</a>
             <a class="btn btn-primary btn-lg" href="./home" role="button">Home</a>
         </div>
     </div>
@@ -52,6 +52,28 @@
         <div>
             <a href="./api/reservations">API Table Link</a> | <a href="./api/waitingList">API Wait List</a>
         </div>
+        <script>
+            $("submit-reservation").on("click", function(event){
+            event.preventDefault();
+
+            let newReservation = {
+                name: $("name").val().trim(),
+                phone: $("phone").val().trim(),
+                email: $("email").val().trim(),
+                uniqueID: $("id").val().trim()
+            };
+            console.log(newReservation);
+            $.post("api/tables", newReservation, function(data) {
+            if (data) {
+                alert("You are booked");
+            }
+            else {
+                alert("Waitlisted");
+            }
+            // psudo code clear values upon submit
+            });
+            })
+        </script>
     </div>
     
 </body>
