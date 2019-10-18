@@ -10,23 +10,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const reservedTable = [
-  {
-    name: 'jeremy',
-    phone: 51256789,
-    email: "t@t.com",
-    id: 123
-  }
 ];
 
 
 
 const waitingTable = [
-  {
-    name: 'jeremy',
-    phone: 51256789,
-    email: "t@t.com",
-    id: 123
-  }
 ];
 
 
@@ -56,8 +44,11 @@ app.route("/api/reservation")
   return res.json(reservedTable);
 })
 .post(function(req, res) {
-
-  reservedTable.push(req.body);
+  if (reservedTable.length < 6) {
+    reservedTable.push(req.body);
+  } else {
+    waitingTable.push(req.body);
+  }
   
 
 })
